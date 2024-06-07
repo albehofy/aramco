@@ -1,0 +1,15 @@
+<p-carousel 
+[value]="products" 
+[numVisible]="3" 
+[numScroll]="1" 
+[circular]="false" 
+[responsiveOptions]="responsiveOptions">
+<ng-template let-product pTemplate="item">
+      <a href="#" [routerLink]="['/departments']" class="container text-decoration-none">
+      <div class="card border mx-2 carousle-card">
+        <img src="{{product.image}}" alt="">
+        <h2 class="text-center py-4">{{product.name}}</h2>
+      </div>
+    </a>
+    </ng-template>
+</p-carousel>

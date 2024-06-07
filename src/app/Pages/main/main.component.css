@@ -1,0 +1,240 @@
+.header {
+    position: relative;
+    background-image: url('/assets/images/bg.jpg');
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+
+.data-holder {
+    padding-top: 150px;
+    margin-top: 50px;
+    z-index: 99;
+    position: relative;
+}
+
+.tree-root {
+    position: absolute;
+    top: 102px;
+    width: 25%;
+    left: -75px;
+}
+
+.badge {
+    display: inline-block;
+    padding: .35em .65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+
+.curve-text {
+    display: inline-block;
+    position: relative;
+}
+
+.curve-text svg {
+    fill: transparent;
+    height: 170px;
+    width: 170px;
+    overflow: inherit;
+    animation: spinner 20s infinite linear;
+}
+
+.curve-text svg text {
+    fill: #fff;
+    letter-spacing: 7px;
+    font-family: sans-serif;
+}
+
+.curve-text a {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 9;
+    height: 93px;
+    width: 93px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 93px;
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+}
+
+svg {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    font-size: 25px;
+    height: 200px;
+    width: 200px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.info {
+    font-family: 'Shadows Into Light Two';
+    color: #fff;
+    max-width: 450px;
+    width: 75%;
+    /* margin: auto 32px; */
+}
+
+.info h2 {
+    font-weight: 600;
+    line-height: 1.2;
+    font-size: 90px;
+    margin-left: 48px;
+}
+
+h2 strong {
+    display: block;
+}
+
+.info p {
+    width: 95%;
+    min-width: 280px;
+    margin-top: 21px;
+    margin-left: 48px;
+    font-weight: 500;
+    /* line-height: 1.2;*/
+    font-size: 18px; 
+    font-family: "Outfit";
+}
+
+.showing-data {
+    min-height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    /* margin-top: 50px; */
+}
+
+.showing-data > div {
+    max-width: 50%;
+    min-width: 270px;
+}
+
+
+.showing-data .showing-data-images img {
+    width: 100%;
+    /* max-width: 450px; */
+    height: 520px;
+}
+
+.showing-data .showing-data-info {
+    direction: rtl;
+    padding: 10vh 0;
+    background-image: url('/assets/images/banner-shape-3.webp');
+    position: relative;
+}
+.special-cards {
+    width: 100%;
+    position: absolute;
+    left:-20%;
+}
+
+.green-card {
+    width: 97%;
+    max-width: 270px;
+    background-color: #49a760;
+    color: #fff;
+    padding: 45px 21px;
+}
+
+.orange-card {
+    width: 97%;
+    max-width: 270px;
+    background-color: #f7c35f;
+    color: #fff;
+    padding: 45px 21px;
+}
+
+/* fixed-attachments */
+.fixed-attachments {
+    height: 100vh;
+    min-height: 450px;
+    width: 100%;
+    background-image: url('/assets/images/bg.jpg');
+    background-attachment: fixed;
+}
+
+.fixed-attachments > .container {
+    height: 100%;
+}
+
+.group-attached-card {
+    width: 270px;
+    border-radius: 35px 35px;
+}
+
+@media only screen and (max-width:767px) {
+    .data-holder {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 95px;
+    }
+
+    .info {
+        text-align: center;
+        margin: auto;
+    }
+
+    .info h2 {
+        margin-left: auto;
+        font-size: 53px;
+    }
+
+    .info p {
+        margin-left: auto;
+        width: auto;
+        min-width: auto;
+    }
+
+    .showing-data > div{
+        max-width: 100%;
+    }
+    .special-cards {
+        position: static;
+    }
+}
+
+
+@media only screen and (max-width:575px) {
+    .special-cards {
+        justify-content: center;
+        width: 100%;
+        margin: 14px auto;
+    }
+    .special-cards > div {
+        width: 100%;
+        margin: 14px auto;
+    }
+}
+
+@keyframes spinner {
+    100% {
+        transform: rotate(360deg);
+    }
+}

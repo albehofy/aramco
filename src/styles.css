@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: ArabicUIDisplaySemiBold;
+    src: url('/assets/fonts/ArabicUIDisplaySemiBold.otf');
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Cairo';
+    font-weight: 100;
+    src: url('/assets/fonts/Cairo-VariableFont_slnt,wght.ttf');
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Basha';
+    font-weight: 100;
+    src: url('/assets/fonts/"KFOlCnqEu92Fr1MmEU9fBBc4.woff2"');
+}
+
+@font-face {
+    font-family: 'Shadows Into Light Two';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/assets/fonts/secondary-font.woff2');
+}
+
+body {
+    line-height: 1.8;
+    font-family: 'Cairo',sans-serif;
+}
+
+
+/* General styles for the custom accordion header link */
+.custom-accordion .p-accordion-header .p-accordion-header-link {
+    margin: 14px auto;
+    font-size: 1.5rem;
+    text-decoration: none; /* Remove underline from links */
+    background-color: #49a760;
+    color: #fff;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for the custom accordion header link */
+.custom-accordion .p-accordion-header .p-accordion-header-link:hover {
+    background-color: #76d38d; /* Lighter background color on hover */
+}
+
+/* Styles for the custom accordion header link when the header is not disabled and is highlighted */
+.custom-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+    color: #fff; /* Text color */
+    background-color: #49a760!important;
+    border: 1px solid #49a760; /* Border */
+    padding: 10px; 
+    font-size: 1.5rem;
+    font-weight: bold; 
+    text-decoration: none; 
+    display: block; 
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the highlighted custom accordion header link */
+.custom-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link:hover {
+    background-color: #49a760;
+}

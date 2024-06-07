@@ -1,0 +1,102 @@
+
+.contact-us{
+    min-height: 100vh;
+    direction: rtl;
+}
+.contact-us-container{
+    width: 100%;
+}
+.contact-us-container > div {
+    position: relative;
+    padding-top: 150px;
+    margin-top: 75px;
+    min-height: 110vh;
+    width: 47%;
+    min-width: 290px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-us-container > .contacts-info {
+    background-color: #1f4e3d;
+    color: #FFF;
+}
+
+.contacts-info h2 {
+    font-size: 2.7rem;
+    font-weight: 600;
+}
+
+.contacts-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.contacts-info p.title {
+    width: 75%;
+}
+
+.contacts-info .flower {
+    position: absolute;
+    left: 50%;
+    /* transform: skew(10deg); */
+    width: 280px;
+    bottom: -10px;
+    z-index: 0;
+    opacity: 0.3;
+    transform: translateX(-50%);
+}
+
+
+.contact-us-container > .form-info {
+    background-color: #e9f1ee;
+}
+
+/* 
+.contacts-info a {
+    color: #fff;
+    text-transform: none;
+} */
+form {
+    position: absolute; 
+    right: -82px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    /* padding: 45px 21px; */
+}
+
+.farmer-contact-us {
+    width: 270px;
+    position: absolute;
+    left: -15%;
+    bottom: 0;
+}
+@media only screen and (max-width: 767px) {
+    .contact-us{
+        margin-top: 135px;
+    }
+    .farmer-contact-us {
+        width: 161px;
+    }
+    .contact-us-container > div {
+        margin-top: 0;
+        height: auto;
+        min-height: auto;
+        padding-top: 112px;
+        padding-left: 21px;
+        padding-right: 21px;
+    }
+    form {
+        position: static;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 290px) {
+    .contact-us-container > div {
+        min-width: 270px;
+    }
+}

@@ -1,0 +1,104 @@
+.navbar {
+    direction: rtl;
+    font-family: 'Cairo',sans-serif!important;
+
+}
+
+.navbar-contacts {
+    background-color: #1f4e3d;
+    direction: rtl;
+    font-family: 'Cairo',sans-serif!important;
+}
+
+.social-media {
+    font-size: 20px;
+    line-height: 20px;
+}
+.social-media i{
+    /* font-size: 16px; */
+    margin: auto 7px;
+}
+.main-navbar {
+    font-size: 16px;
+}
+
+.navbar-border {
+    width: 100%;
+    height: 27px;
+    background-image: url(/assets/images/navbar.png);
+    background-position-y: 113%;
+    background-repeat: no-repeat;
+}
+
+.navbar img {
+    width: 107px;
+}
+
+.navbar-nav {
+    max-width: 570px !important;
+    margin: auto 2rem;
+}
+
+.navbar a {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+a.contact-us {
+    background-color: transparent;
+    color: #212529;
+    text-decoration: none;
+    min-width: 140px;
+    text-align: center;
+    /* border-radius: 7px; */
+    padding: 10px 40px !important;
+    /* border-radius: 30px;*/
+    font-size: 17px; 
+    margin-left: 5px; 
+    /* border: 2px solid #49a760; */
+    /* transition: all 300ms ease-in-out; */
+}
+
+/* a.contact-us:hover {
+    background-color: #49a760;
+    color: #FFF;
+
+} */
+
+@media only screen and (max-width: 767px) {
+    .navbar-contacts {
+        flex-wrap: wrap;
+    }
+    .navbar-contacts div{
+        margin: 7px 0;
+    }
+    .social-media {
+        display: none;
+    }
+
+    .navbar {
+        padding-bottom: 14px;
+
+    }
+
+    .navbar-border {
+        display: none;
+    }
+
+    .navbar-nav {
+        align-items: center;
+        justify-content: space-around;
+        height: 80vh;
+    }
+
+    .nav-link {
+        max-width: 120px !important;
+        margin: 3vh auto !important;
+    }
+
+    a.contact-us {
+        display: block;
+        width: 170px;
+        margin: 21px auto;
+    }
+}

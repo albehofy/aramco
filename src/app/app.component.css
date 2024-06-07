@@ -1,0 +1,16 @@
+*,*::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loader{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    z-index: 99999999;
+    background-color: #f7fbff;
+    transition: all 350ms ease-in-out;
+}
