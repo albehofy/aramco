@@ -24,6 +24,7 @@ import { MainComponent } from './Pages/main/main.component';
 import { DepartmentsComponent } from './Pages/departments/departments.component';
 import { CompaniesComponent } from './Pages/companies/companies.component';
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
+import { JopsComponent } from './Pages/jops/jops.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ProductDetailsComponent } from './Pages/product-details/product-details
     MainComponent,
     DepartmentsComponent,
     CompaniesComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    JopsComponent
   ],
   imports: [
     BrowserModule,

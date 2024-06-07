@@ -9,6 +9,7 @@ import { ContactUsComponent } from './Pages/contact-us/contact-us.component';
 import { DepartmentsComponent } from './Pages/departments/departments.component';
 import { CompaniesComponent } from './Pages/companies/companies.component';
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
+import { JopsComponent } from './Pages/jops/jops.component';
 
 const routes: Routes = [
   {path:'',component:MainComponent}, 
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path:'product',component:ProductComponent}, 
     {path:'product-details',component:ProductDetailsComponent}, 
     {path:'whoIsUs',component:WhoIsUsComponent}, 
+    {path:'jops',component:JopsComponent}, 
     {path:'contactUs',component:ContactUsComponent}, 
     {path:'*',component:MainComponent}, 
 ];
