@@ -9,9 +9,10 @@
 }
 
 .logo {
-    width: 50%;
-    border: 21px solid #49a760 ;
+    width: 35%;
+    border: 2px solid #49a760 ;
     border-style: inset;
+    border-radius: 7px;
     border-top-left-radius: 92px;
     border-bottom-right-radius: 72px;
 }

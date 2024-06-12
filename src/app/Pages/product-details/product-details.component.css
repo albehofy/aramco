@@ -13,6 +13,7 @@
 .details-container > div{
     min-width: 270px;
     width: 50%;
+    max-width: 475px;
 }
 
 @media only screen and (max-width:401px) {

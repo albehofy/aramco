@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  mouseIn:boolean = false;
+goodbye() {
+  this.mouseIn = false; 
+}
+  hello() {
+    this.mouseIn = true; 
+  }
 
 }

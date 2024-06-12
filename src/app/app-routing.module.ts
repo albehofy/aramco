@@ -14,7 +14,7 @@ import { JopsComponent } from './Pages/jops/jops.component';
 const routes: Routes = [
   {path:'',component:MainComponent}, 
     {path:'company',component:CompanyComponent}, 
-    {path:'agent',component:AgentsComponent}, 
+    {path:'agents',component:AgentsComponent}, 
     {path:'companies',component:CompaniesComponent}, 
     {path:'departments',component:DepartmentsComponent}, 
     {path:'product',component:ProductComponent}, 

@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,7 +55,8 @@ import { JopsComponent } from './Pages/jops/jops.component';
     ButtonModule,
     TagModule,
     AccordionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

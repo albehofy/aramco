@@ -65,6 +65,20 @@ a.contact-us {
 
 } */
 
+.relative-dropdown {
+    position: relative;
+}
+
+.dropdown {
+    list-style: none;
+    width: 250px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999999999999;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
 @media only screen and (max-width: 767px) {
     .navbar-contacts {
         flex-wrap: wrap;
