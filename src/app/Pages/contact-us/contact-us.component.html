@@ -8,37 +8,43 @@
             </p>
             <div class="py-2">
                 <h3 class="m-0">الخط الساخن</h3>
-                <a href="tel:+201000000000" class="text-white text-decoration-none">201000000000+</a>
+                <a href="tel:{{general.phone}}" class="text-white text-decoration-none">{{general.phone}}</a>
             </div>
             <div class="py-2">
                 <h3 class="m-0">الموقع</h3>
                 <p>
-                    أبراج جراند - برج (أ) - سموحة
-                    الأسكندرية, مصر
+                    {{general.address}}
                 </p>
             </div>
             <div class="py-2">
                 <h3 class="m-0">البريد الالكترونى</h3>
                 <p>
-                    <a href="mailto:info@aramco-agri.com"  class="text-white text-decoration-none">info{{'@'}}aramco-agri.com</a>
+                    <a href="mailto:info@aramco-agri.com"  class="text-white text-decoration-none">{{general.email}}</a>
                 </p>
             </div>
             <img src="/assets/images/flower.png" alt="flower" class="flower">
         </div>
         <div class="form-info flex-grow-1">
-            <form action="" class="bg-white p-4">
+                <div class="alert-message">
+                    <p-toast />                
+                </div>
+            <form  class="bg-white p-4" [formGroup]="form" (ngSubmit)="onSubmit()">
                 <p>لديك سؤال ؟</p>
                 <h2 class="pb-3">ارسل لنا رسالة</h2>
                 <div class="my-3">
-                    <input type="text" name="name" class="form-control form-control-lg mx-1" id="name" required  placeholder="الاسم">
+                    <input type="text" formControlName="name"
+                      [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" name="name" class="form-control form-control-lg mx-1" id="name"  placeholder="الاسم">
                 </div>
                 <div class="d-flex my-3">
-                    <input type="text" name="email" class="form-control form-control-lg ms-1" id="email" required  placeholder="البريد الالكتروني">
-                    <input type="text" name="tel" class="form-control form-control-lg ms-1" id="tel"  required placeholder="رقم الهاتف">
+                    <input type="email" formControlName="email"
+                      [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" name="email" class="form-control form-control-lg ms-1" id="email"  placeholder="البريد الالكتروني">
+                    <input type="tel" name="tel" class="form-control form-control-lg ms-1" id="tel" placeholder="رقم الهاتف" formControlName="phone"
+                      [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }">
                 </div>
-                <textarea rows="3" name="message" id="message" class="form-control form-control-lg my-3" required  placeholder="رسالتك"></textarea>
+                <textarea rows="3" name="message" id="message" class="form-control form-control-lg my-3"  placeholder="رسالتك" formControlName="message"
+                      [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"></textarea>
 
-                <button class="btn btn-success btn-lg d-block mx-auto mt-4 mb-2">ارسال</button>
+                <button class="btn btn-success btn-lg d-block mx-auto mt-4 mb-2" type="submit" pRipple label="Show">ارسال</button>
             </form>
             <img src="/assets/images/farmer-conatc-us.png" class="farmer-contact-us" alt="farmer image">
         </div>

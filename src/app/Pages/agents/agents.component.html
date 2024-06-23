@@ -10,8 +10,8 @@
     <div>
         <!-- <div class="shadow-image"></div> -->
         <div class="d-flex flex-wrap justify-content-evenly py-5">
-            @for (agent of agetns; track $index) {
-            <a [routerLink]="['/departments']" class="agent card text-decoration-none user-select-none cursor-pointer m-3 text-center">
+            @for (agent of agents; track $index) {
+            <a [routerLink]="['/departments', agent.id]" class="agent card text-decoration-none user-select-none cursor-pointer m-3 text-center">
                 <div class="card-image">
                     <img class="card-img-top" [src]="agent.image" alt="image-name" />
                 </div>
@@ -20,6 +20,10 @@
                     <h6>البلد : {{agent.country}}</h6>
                 </div>
             </a>
+            }@empty {
+                <div ngClass="no-data">
+                    سنكون موجودين قريبا
+                </div>
             }
         </div>
     </div>

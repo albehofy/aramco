@@ -1,5 +1,15 @@
-.jops {
-    padding-top: 150px;
-    height: 100vh;
+.jobs {
+    padding-top: 221px;
+    min-height: 100vh;
     background-color: azure;
+    font-family: Cairo;
+    font-weight: 600;
+}
+
+.job{
+    width: 275px;
+    direction: rtl;
+}
+.card-footer span {
+    width: 107px;
 }

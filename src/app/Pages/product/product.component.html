@@ -2,7 +2,7 @@
     <div class="page-overlay">
         <h2 class="text-center h2 display-5 pb-3 fw-semibold text-success">
             <span class="name-of-page fw-bold display-3">
-             المنتجات
+             {{department}}
             </span>
         </h2>
     </div>
@@ -10,20 +10,28 @@
     <div>
         <div class="shadow-image"></div>
         <div class="container-md d-flex flex-wrap justify-content-evenly ">
-            @for (depratment of depratments; track $index) {
-            <a href="#" [routerLink]="['/product-details']" class="card text-decoration-none user-select-none cursor-pointer m-3 text-center">
-                <img class="card-img-top" [src]="depratment.image" alt="image-name" />
+            @for (product of products; track $index) {
+            <a href="#" [routerLink]="['/product-details',product.id]" class="card text-decoration-none user-select-none cursor-pointer m-3 text-center">
+                @if (product.image) {
+                    <img class="card-img-top" [src]="product.image" alt="image-name" />
+                }@else {
+                    <img src="/assets/images/default.jpeg" alt="">
+                }
                 <div class="card-body">
-                    <h6 class="card-title fw-bolder">{{depratment.name}}</h6>
+                    <h6 class="card-title fw-bolder">{{product.name}}</h6>
                 </div>
                 <div class="overlay d-flex justify-content-center align-items-center">
                     <span class="text-center overlay-data fw-bold text-white">
                         <i class="bi bi-eye-fill"></i>
                         <br>
-                        عرض المنتجات
+                        عرض التفاصيل
                     </span>
                 </div>
             </a>
+            }@empty {
+                <div ngClass="no-data">
+                    سنكون موجودين قريبا
+                </div>
             }
         </div>
     </div>

@@ -1,3 +1,31 @@
-<div class="jops d-flex align-items-center justify-content-center">
-    <h4>لاتتوفر وظائف فى الوقت الحالى</h4>
+<div class="jobs">
+    @if (!jobsLength) {
+    <div class="container d-flex align-items-center justify-content-center">
+        <h4>لاتتوفر وظائف فى الوقت الحالى</h4>
+    </div>
+    }@else {
+
+    <div class="container d-flex align-items-stretch justify-content-evenly flex-wrap-reverse">
+        @for (item of jobs; track item.id) {
+        <div class="card job flex-grow-1 m-2">
+            <h3 class="text-center card-header p-4 fw-bold">{{item.name}}</h3>
+            <div class="card-body p-4">
+                <p class="border-bottom pb-3">تاريخ النشر : {{item.date_of_publication|splitString}}</p>
+                <p>{{item.description}}</p>
+            </div>
+            <div class="card-footer border-0 bg-transparent">
+                <h4 class="px-2 py-3 d-inline-block">لمزيد من التفاصيل</h4>
+                <div class="d-flex flex-wrap small"> 
+                    <span class="d-inline-block pe-1 fw-bold">البريد الالكتروني </span>
+                    <a href="mailto:{{email}}">{{email}}</a>
+                </div>
+                <div class="d-flex flex-wrap small"> 
+                    <span class="d-inline-block pe-1 fw-bold">الهاتف</span>
+                    <a href="tel:+2{{phone}}">{{phone}}</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
 </div>

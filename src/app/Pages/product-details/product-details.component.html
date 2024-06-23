@@ -3,26 +3,40 @@
         <h2 class="text-center h2 display-5 pb-3 fw-semibold text-success">
             <span class="name-of-page fw-bold display-3"></span>
         </h2>
-        <div class="details-container container-md d-flex justify-content-around align-items-center flex-wrap ">
+        <div class="details-container container-md d-flex justify-content-around flex-wrap py-5">
             <div class="flex-grow-1 ">
-                <img class="product-details-img rounded" src="/assets/images/bg.jpg" alt="">
-                <h2 class="fw-bolder fs-4 py-2">اسم المنتج</h2>
-                <p>وظيفة المنتج ووصفة</p>
+                @if (product.image) {
+                    <img class="product-details-img rounded" [src]="product.image" alt="">
+                }@else {
+                    <img src="/assets/images/default.jpeg" alt="">
+                }
+                <h2 class="fw-bolder fs-4 py-2">{{product.name}}</h2>
+                <p [innerHTML]="product.description|newLine"></p>
             </div>
             <div class="flex-grow-1 product-details-title px-5">
                 <h3>المواد الفعالة</h3>
                 <ul>
-                    <li>المادة الفعالة 1</li>
-                    <li>المادة الفعالة 2</li>
-                    <li>المادة الفعالة 3</li>
-                    <li>المادة الفعالة 4</li>
-                    <li>المادة الفعالة 5</li>
+                    @for (item of product.components; track $index) {
+                    <li>{{item["name"]}}</li>
+                    }
                 </ul>
+                @if (product.how_to_use) {
                 <h3>الاستخدام</h3>
-                <p>طريقة الاستخدام</p>
+                <p>{{product.how_to_use|newLine}}</p>
+                }
+                @if (product.phi) {
                 <h3>PHI</h3>
-                <p>طريقة الاستخدام</p>
+                <p>{{product.phi}}</p>
+                }
             </div>
         </div>
+    </div>
+
+    <!-- related products -->
+    <div class="container">
+        <p class="product-address">منتجات ذات صلة</p>
+   <div class="carousel-conatiner">
+    <app-carousel [inMain]="false" [products]="products"></app-carousel>
+   </div>
     </div>
 </div>

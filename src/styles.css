@@ -64,3 +64,18 @@ body {
 .custom-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link:hover {
     background-color: #49a760;
 }
+
+.p-toast {
+    top: 190px;
+    z-index: 999999999999999;
+    background-color: #f1fdf5;
+}
+.no-data {
+    height: 100vh;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    font-weight: 600;
+}

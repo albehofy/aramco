@@ -1,27 +1,48 @@
 <div class="departments">
     <div class="page-overlay">
-        <h2 class="text-center h2 display-5 pb-3 fw-semibold text-success">
-            <span class="name-of-page fw-bold display-3 w-75">
-                اسم الشركة 
+        <h2 class="text-center h3 display-6 pb-3 fw-semibold text-success">
+            <span class="name-of-page d-inline-block fw-bold display-3">
+                {{company}}
             </span>
-            <!-- <span>الشركة / الاقسام</span> -->
         </h2>
     </div>
 
-    <div>
-        <!-- <div class="shadow-image"></div> -->
-        <div class="container-md  d-flex flex-wrap justify-content-evenly ">
-            @for (depratment of depratments; track $index) {
-            <a [routerLink]="['/product']" class="company card text-decoration-none user-select-none cursor-pointer m-3 text-center">
-                <div class="image-container">
-                    <img class="card-img-top" [src]="depratment.image" alt="image-name" />
+    <div class="mt-5 d-flex flex-sm-row flex-column gap-3">
+        <div>
+            <div class="d-sm-none  d-inline-block data-sm fw-bold fs-4 border p-3 w-100" (click)="fire()">
+                @if (smallScreen) {
+                    عرض الاقسام
+                }@else {
+                    اخفاء الاقسام
+                }
+            </div>
+    
+            <div class="d-sm-block  me-4 data card"  [ngClass]="{'d-none':smallScreen}" >
+                <div class="flex justify-content-center flex-column gap-5">
+                    @for (depratment of depratments; track $index) {
+                    <div class="flex align-items-center" (click)="AddingDepartData()">
+                        <p-checkbox [(ngModel)]="selectedDepartment" [label]="depratment.name" name="depratments"
+                            [value]="$index" />
+                    </div>
+                    }
                 </div>
-                <div class="card-body">
-                    <h6 class="card-title fw-bolder">{{depratment.name}}</h6>
+            </div>
+        </div>
+        <div class="d-flex flex-wrap gap-4 justify-content-center align-items-center flex-grow-1">
+            @for (department of products; track $index) {
+                @for(product of department;track $index){
+                    <a href="#" [routerLink]="['/product-details',product.id]" class="text-center product bg-white card text-decoration-none">
+                        <img [src]="product.image" class="pb-2" [alt]="product.name">
+                        <p>{{product.name}}</p>
+                    </a>
+                }
+            }@empty {
+                <div class="d-flex align-items-center justify-content-center w-100">
+                    <p>اختر القسم</p>
                 </div>
-            </a>
             }
         </div>
+
     </div>
 
 </div>

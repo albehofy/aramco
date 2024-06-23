@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FetchingDataService } from '../../Services/fetching-data.service';
 
 @Component({
   selector: 'app-departments',
@@ -8,39 +10,57 @@ import { Component } from '@angular/core';
 export class DepartmentsComponent {
   depratments = [
     {
-      name: 'اسم القسم 1',
-      image: 'https://i.pinimg.com/564x/d4/eb/57/d4eb57c3adea209ae3516c09d15a60a2.jpg', 
-      id: 1
-    },
-    {
-      name: 'اسم القسم 2',
-      image: 'https://i.pinimg.com/564x/ba/6b/c3/ba6bc3e3ee5a4d0d81fdb7f55cdeb9b8.jpg', 
-      id: 2
-    },
-    {
-      name: 'اسم القسم 3',
-      image: 'https://i.pinimg.com/564x/9a/f0/2d/9af02d7a9e1bdd4d2cd55f6e3ac33732.jpg', 
-      id: 3
-    },
-    {
-      name: 'اسم القسم 4',
-      image: 'https://i.pinimg.com/564x/91/e3/b0/91e3b0ebd89493b8e991a90215b5d25b.jpg', 
-      id: 4
-    },
-    {
-      name: 'اسم القسم 5',
-      image: '/assets/images/bg.jpg', 
-      id: 5
-    },
-    {
-      name: 'اسم القسم 6',
-      image: '/assets/images/bg.jpg', 
-      id: 6
-    },
-    {
-      name: 'اسم القسم 7',
-      image: '/assets/images/bg.jpg', 
-      id: 7
+      id: '',
+      name: '',
+      image: ''
     }
-  ]; 
+  ];
+  smallScreen:boolean = true; 
+  products: any = []
+  selectedDepartment: any = [0];
+
+  id: number | any;
+  company: string = 'اسم الشركة';
+
+  constructor(private fpd: FetchingDataService, private route: ActivatedRoute) {
+    this.id = this.route.snapshot.paramMap.get('id');
+
+    this.fpd.gettingDepartments(this.id).subscribe(
+      {
+        next: (res) => {
+          this.depratments = res.result.categories;
+          this.company = res.result.name;
+          this.fectchDepartmentData()
+        }
+      }
+    )
+  }
+
+
+  fectchDepartmentData() {
+    // this.products = [];
+    let products: any = [];
+    for(let i = 0; i < this.selectedDepartment.length;i++){
+      let depart = this.depratments[this.selectedDepartment[i]]; 
+      this.fpd.gettingProducts(Number(depart.id)).subscribe(
+        {
+          next: (res: any) => {
+            this.products.push(res.result.products)
+          }
+        }
+      )
+    }
+    // console.log(products)
+    return products; 
+  }
+
+  AddingDepartData(){
+    this.products = this.fectchDepartmentData(); 
+    console.log(this.selectedDepartment)
+    console.log(123)
+  }
+  fire(){
+    this.smallScreen = !this.smallScreen
+    console.log(this.smallScreen)
+  }
 }

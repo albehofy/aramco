@@ -5,9 +5,21 @@
     direction: rtl;
     /* background-color: #eff7fd; */
 }
-
+.carousel-conatiner {
+    direction: ltr;
+}
+.container .product-address {
+    display: inline-block;
+    border-bottom: 2px solid #3333;
+    font-size: 32px;
+    margin: 21px 51px 7px 21px;
+    padding-bottom: 7px;
+    direction: rtl;
+}
 .product-details-img {
     width: 100%;
+    max-height: 350px;
+    border-radius: 7px;
 }
 
 .details-container > div{

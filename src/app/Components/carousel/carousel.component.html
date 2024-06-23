@@ -1,15 +1,43 @@
-<p-carousel 
-[value]="products" 
-[numVisible]="3" 
-[numScroll]="1" 
-[circular]="false" 
-[responsiveOptions]="responsiveOptions">
-<ng-template let-product pTemplate="item">
-      <a href="#" [routerLink]="['/departments']" class="container text-decoration-none">
+@if (inMain) {
+  <p-carousel 
+  [value]="agentsAndCompanies" 
+  [numVisible]="5" 
+  [numScroll]="1" 
+  [circular]="true" 
+  [responsiveOptions]="responsiveOptions">
+  <ng-template let-product pTemplate="item">
+    <a href="#"  [routerLink]="['/departments',product.id]" class="container text-decoration-none">
       <div class="card border mx-2 carousle-card">
-        <img src="{{product.image}}" alt="">
+        @if(product.image){
+          <img [src]="product.image" alt="">
+        }@else{
+          <img src="/assets/images/default.jpeg" alt="">
+        }
         <h2 class="text-center py-4">{{product.name}}</h2>
       </div>
     </a>
-    </ng-template>
+  </ng-template>
+</p-carousel>
+<h2 class="py-1 text-center fw-bold address">بعض منتجاتنا المميزة</h2>
+
+}
+
+<p-carousel 
+  [value]="products" 
+  [numVisible]="5" 
+  [numScroll]="1" 
+  [circular]="true" 
+  [responsiveOptions]="responsiveOptions">
+  <ng-template let-product pTemplate="item">
+    <a href="#"  [routerLink]="['/departments',product.id]" class="container text-decoration-none">
+      <div class="card border mx-2 carousle-card">
+        @if(product.image){
+          <img [src]="product.image" alt="">
+        }@else{
+          <img src="/assets/images/default.jpeg" alt="">
+        }
+        <h2 class="text-center py-4">{{product.name}}</h2>
+      </div>
+    </a>
+  </ng-template>
 </p-carousel>

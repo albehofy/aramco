@@ -6,7 +6,7 @@ import { FetchingDataService } from '../../Services/fetching-data.service';
   styleUrl: './agents.component.css'
 })
 export class AgentsComponent {
-  agetns: Array<any> = [{
+  agents: Array<any> = [{
     name: '',
     country: '',
     image: ''
@@ -15,7 +15,7 @@ export class AgentsComponent {
     this.fds.gettingAgents().subscribe(
       {
         next: res => {
-          this.agetns = res.result;
+          this.agents = res.result;
           console.log(res.result)
         }
       }

@@ -74,6 +74,12 @@ form {
     left: -15%;
     bottom: 0;
 }
+
+/* .alert-message {
+    position: relative!important; 
+    top: 220px!important;
+    z-index: 9999!important;
+} */
 @media only screen and (max-width: 767px) {
     .contact-us{
         margin-top: 135px;

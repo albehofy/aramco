@@ -1,37 +1,85 @@
-<div
-class="footer bg-black d-flex justify-content-evenly align-items-center flex-wrap flex-md-nowrap text-white fs-5 display-6 text-capitalize flex-column flex-md-row">
+<div class="wrapper">
+    <div
+        class="footer d-flex justify-content-evenly align-items-stretch flex-wrap flex-md-nowrap text-white fs-5 display-6 text-capitalize flex-column flex-md-row">
 
-    <div class="socialmedia-links flex-grow-1 p-4 text-white">
-        <div>
-            <h4 class="py-4 px-1 fs-2 fw-bold">بيانات التواصل</h4>
-            <p class="fs-5 d-flex" style="line-height: 31px;">
-                <i class="bi bi-geo-alt-fill text-success"></i>
-                 <span class="d-inline-block px-2">عمارات جراند بيلدلينج ( أ )- الدور الاول - سموحة جرين بلازا
-                    الأسكندرية, مصر</span>
-            </p>
-            <p class="fs-5 d-flex">
-                <i class="bi bi-telephone-fill text-success"></i>
-                <span class="d-inline-block px-2">034244251 002</span>
+        <div class="footer-part logo flex-grow-1 text-center">
+            <img src="/assets/images/logo.png" class="w-50" alt="Aramco Agriculture">
+            <p class="text-center f2-6 fw-bold pt-3">
+                ارامكو للتنمية الزراعية
             </p>
         </div>
 
-    </div>
-    
-    <div class="logo flex-grow-1 p-4 text-center">
-        <img src="/assets/images/logo.png" class="w-50" alt="Aramco Agriculture">
-        <p class="text-center fs-6 pt-3">
-            ارامكو للتنمية الزراعية هي شركة رائدة في مجال التنمية الزراعية
-            
-        </p>
-    </div>
-    
-    <div class="location flex-grow-1 p-4 text-white text-center">
-        <h4 class="text-center py-4 fs-5 fw-bold">تابعونا على مواقع التواصل الاجتماعي</h4>
-        <div class="text-center mx-auto my-2">
-            <a href="facebook.com" class="text-white mx-2 d-inline-block"><i class="bi bi-facebook"></i></a>
-            <a href="twitter.com" class="text-white mx-2 d-inline-block"><i class="bi bi-twitter"></i></a>
-            <a href="youtube.com" class="text-white mx-2 d-inline-block"><i class="bi bi-youtube"></i></a>
-            <a href="linkedin.com" class="text-white mx-2 d-inline-block"><i class="bi bi-linkedin"></i></a>
+        <div class="footer-part special-flex flex-grow-1  text-white">
+            <h4 class="pt-5 pb-2 px-1 fs-4 fw-bold d-inline-block">اذهب الى</h4> <br><br>
+            <a class="text-white fw-bold contact-link text-decoration-none d-inline-block pb-3" href="#"
+                [routerLink]="['/']">الرئيسية</a>
+            <br>
+            <a class="text-white fw-bold contact-link text-decoration-none d-inline-block pb-3" href="#"
+                [routerLink]="['/company-hloder']">المنتجات</a>
+            <br>
+            <a class="text-white fw-bold contact-link text-decoration-none d-inline-block pb-3" href="#"
+                [routerLink]="['/jops']">الوظائف</a>
+            <br>
+            <a class="text-white fw-bold contact-link text-decoration-none d-inline-block pb-3" href="#"
+                [routerLink]="['/whoIsUs']">من نحن</a>
+            <br>
+            <a class="text-white fw-bold contact-link text-decoration-none d-inline-block pb-3" href="#"
+                [routerLink]="['/contactUs']">تواصل معنا </a>
+            <br>
         </div>
+
+        <div class="footer-part special-flex flex-grow-1  text-white">
+            <h4 class="pt-5 pb-2 px-1 fs-4 fw-bold d-inline-block text-center mx-auto">الوكالات</h4>
+            <br>
+            <br>
+            <div class="py-1">
+                @for (agent of agents; track $index) {
+                    <a class="text-white fw-bold contact-link text-decoration-none d-inline-block pb-3" href="#"
+                        [routerLink]="['/departments', agent.id]"> {{agent.name}} </a>
+                    <br>
+                    }
+            </div>
+
+        </div>
+
+        <div class="footer-part flex-grow-1 special-flex text-white">
+            <h4 class="pt-5 pb-2 px-1 fs-4 fw-bold d-inline-block text-center mx-auto">اتصل بنا</h4> <br><br>
+
+            <div class="d-flex justify-content-start w-100 align-items-center py-1 gap-2">
+                <span class="d-block text-center" style="min-width: 72px;"><i class="bi bi-geo-alt-fill"></i></span>
+                <p class="w-75">{{general.address}}</p>
+            </div>
+
+            <div class="d-flex justify-content-start w-100 align-items-center py-1 gap-2">
+                <span class="d-block text-center" style="min-width: 72px;"><i class="bi bi-phone"></i>
+                </span>
+                <p class="w-75">{{general.phone}}</p>
+            </div>
+
+            <div class="d-flex justify-content-start w-100 align-items-center py-1 gap-2">
+                <span class="d-block text-center" style="min-width: 72px;"><i class="bi bi-envelope-fill"></i></span>
+                <p class="w-75">{{general.email}}</p>
+            </div>
+            <div class="d-flex justify-content-start w-100 align-items-center py-1 gap-2">
+                <span class="d-block text-center fw-bold" style="min-width: 72px;">-</span>
+                <h5 class="text-center py-2"> تابعونا على مواقع التواصل الاجتماعي</h5>
+            </div>
+
+
+            <div class="d-flex justify-content-around flex-grow-1 socialmedia-links m-2 pt-3 ps-5 w-100">
+                <a [href]="links.facebook" class="text-white mx-2 d-inline-block"><i class="bi bi-facebook"></i></a>
+                <a [href]="links.x" class="text-white mx-2 d-inline-block"><i class="bi bi-twitter"></i></a>
+                <a [href]="links.youtube" class="text-white mx-2 d-inline-block"><i class="bi bi-youtube"></i></a>
+                <a [href]="links.linkedin" class="text-white mx-2 d-inline-block"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+
     </div>
+
+    <p class="text-center text-white text-capitalize fw-bold pt-5 pb-3 mb-0 copyright" style="direction: rtl;"> جميع
+        الحقوق محفوظة
+        لشركة ارامكو الزراعية | <span class="d-inline-block mx-1"> تنفيذ <a href="https://www.mediaglowegypt.com"
+                class="text-white">ميديا جلو - media Glow</a></span>
+    </p>
 </div>

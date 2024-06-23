@@ -1,80 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FetchingDataService } from '../../Services/fetching-data.service';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.css'
+  styleUrls: ['./carousel.component.css'] // تعديل هنا ليكون styleUrls بدلاً من styleUrl
 })
-export class CarouselComponent {
-  responsiveOptions: any[] | undefined;
-  products: any = [
-    {
-      id: '1000',
-      code: 'f230fh0g3',
-      name: 'اسم المنتج الاول',
-      description: 'Product Description',
-      image: 'https://i.pinimg.com/564x/fe/95/1a/fe951aa5c9da0d1f7f60de21d571708c.jpg',
-      price: 65,
-      category: 'Accessories',
-      quantity: 24,
-      inventoryStatus: 'INSTOCK',
-      rating: 5
-    },
-    {
-      id: '1000',
-      code: 'f230fh0g3',
-      name: 'اسم المنتج الثاني',
-      description: 'Product Description',
-      image: 'https://i.pinimg.com/736x/09/d0/2d/09d02da3a055091ca33506f05478afa3.jpg',
-      price: 65,
-      category: 'Accessories',
-      quantity: 24,
-      inventoryStatus: 'INSTOCK',
-      rating: 5
-    },
-    {
-      id: '1000',
-      code: 'f230fh0g3',
-      name: 'اسم المنتج الثالث',
-      description: 'Product Description',
-      image: 'https://i.pinimg.com/564x/18/14/15/181415e7780af3071aa8464f0c3091b7.jpg',
-      price: 65,
-      category: 'Accessories',
-      quantity: 24,
-      inventoryStatus: 'INSTOCK',
-      rating: 5
-    },
-    {
-      id: '1000',
-      code: 'f230fh0g3',
-      name: 'اسم المنتج الرابع',
-      description: 'Product Description',
-      image: 'https://i.pinimg.com/564x/14/88/1a/14881af178862a7586c696fe926c2d8b.jpg',
-      price: 65,
-      category: 'Accessories',
-      quantity: 24,
-      inventoryStatus: 'INSTOCK',
-      rating: 5
-    },
-  ];
-
-  ngOnInit() {
+export class CarouselComponent implements OnInit {
+  responsiveOptions: Array<any> = [];
+  agentsAndCompanies: any[] = [];
+  @Input() products: any[] = [];
+@Input()inMain:Boolean = true; 
+  constructor(private fpd: FetchingDataService) {
     this.responsiveOptions = [
       {
         breakpoint: '1199px',
-        numVisible: 1,
+        numVisible: 3,
         numScroll: 1
       },
       {
         breakpoint: '991px',
-        numVisible: 2,
+        numVisible: 3,
         numScroll: 1
       },
       {
         breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
+      },
+      {
+        breakpoint: '575px',
         numVisible: 1,
         numScroll: 1
       }
     ];
+  }
+
+  ngOnInit(): void {
+    this.fpd.gettingCompaniesAndAgents().subscribe({
+      next: (res) => {
+        this.agentsAndCompanies = res.result;
+        console.log(Boolean(this.agentsAndCompanies[0]?.name));
+      },
+      error: (err) => {
+        console.error('Error fetching data:', err);
+      }
+    });
+
+    this.fpd.gettingAllProducts().subscribe({
+      next: (res) => {
+        this.products = res.result;
+        console.log(this.products);
+      },
+      error: (err) => {
+        console.error('Error fetching data:', err);
+      }
+    });
   }
 }

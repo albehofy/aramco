@@ -6,12 +6,17 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { AccordionModule } from 'primeng/accordion';
+import { ToastModule } from 'primeng/toast';
+import { RippleModule } from 'primeng/ripple';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CompanyComponent } from './Pages/company/company.component';
 import { AgentsComponent } from './Pages/agents/agents.component';
 import { ProductComponent } from './Pages/product/product.component';
 import { ContactUsComponent } from './Pages/contact-us/contact-us.component';
@@ -26,11 +31,13 @@ import { DepartmentsComponent } from './Pages/departments/departments.component'
 import { CompaniesComponent } from './Pages/companies/companies.component';
 import { ProductDetailsComponent } from './Pages/product-details/product-details.component';
 import { JopsComponent } from './Pages/jops/jops.component';
+import { CompaniesHoldersComponent } from './Pages/companies-holders/companies-holders.component';
+import { SplitStringPipe } from './Pipes/split-string.pipe';
+import { NewLinePipe } from './Pipes/new-line.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CompanyComponent,
     AgentsComponent,
     ProductComponent,
     ContactUsComponent,
@@ -44,7 +51,10 @@ import { JopsComponent } from './Pages/jops/jops.component';
     DepartmentsComponent,
     CompaniesComponent,
     ProductDetailsComponent,
-    JopsComponent
+    JopsComponent,
+    CompaniesHoldersComponent,
+    SplitStringPipe,
+    NewLinePipe
   ],
   imports: [
     BrowserModule,
@@ -55,8 +65,14 @@ import { JopsComponent } from './Pages/jops/jops.component';
     ButtonModule,
     TagModule,
     AccordionModule,
+    ToastModule,
+    RippleModule,
+    CheckboxModule,
+    DropdownModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule, 
-    HttpClientModule
+    HttpClientModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

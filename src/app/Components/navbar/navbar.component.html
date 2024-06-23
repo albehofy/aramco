@@ -1,23 +1,6 @@
 <!-- Navbar -->
 <div class="navbar-shadow fixed-top">
   <!-- top vanbar for conatcts info -->
-  <nav class="navbar-contacts text-white d-flex justify-content-start justify-content-md-around p-3 ">
-    <div class="opening-hours d-flex">
-      <i class="bi bi-clock text-warning"></i>
-      <span class="d-inline-block mx-3">ساعات العمل طوال ايام الاسبوع من 7 ص حتي 10 م</span>
-    </div>
-    <div class="tele">
-      <i class="bi bi-telephone text-warning"></i>
-      <span class="d-inline-block mx-3">01012345678</span>
-    </div>
-    <div class="social-media">
-      <a href="facebook.com" class="text-white"><i class="bi bi-facebook"></i></a>
-      <a href="twitter.com" class="text-white"><i class="bi bi-twitter"></i></a>
-      <a href="youtube.com" class="text-white"><i class="bi bi-youtube"></i></a>
-      <a href="linkedin.com" class="text-white"><i class="bi bi-linkedin"></i></a>
-    </div>
-  </nav>
-
   <!-- main navbar -->
   <nav class="main-navbar navbar navbar-expand-md navbar-light text-dark bg-white pt-2">
     <div class="container">
@@ -37,31 +20,31 @@
           <ul class="navbar-nav justify-content-around flex-grow-1 pe-3">
             <!-- home -->
             <li class="nav-item text-dark">
-              <a class="nav-link text-dark active" [routerLink]="['/']">الرئيسية</a>
+              <a class="nav-link text-dark active" [routerLink]="['/']" data-bs-dismiss="offcanvas" aria-label="Close">الرئيسية</a>
             </li>
             <!-- our products -->
             <li class="nav-item relative-dropdown">
-              <a class="nav-link" [routerLink]="['/companies']" (mouseenter)="hello()">
+              <a class="nav-link" [routerLink]="['/company-hloder']" (mouseenter)="hello()" data-bs-dismiss="offcanvas" aria-label="Close">
                 المنتجات
               </a>
               @if (mouseIn) {
                 <ul class="dropdown p-4 rounded bg-white" (mouseleave)="goodbye()">
-                  <li class="p-3"><a href="#" (click)="goodbye()" class="text-decoration-none" [routerLink]="['/company']">الشركات</a></li>
-                  <li class="p-3"><a href="#" (click)="goodbye()" class="text-decoration-none" [routerLink]="['/company']">الوكالات</a></li>
+                  <li class="p-3"><a href="#" (click)="goodbye()" class="text-decoration-none" [routerLink]="['/companies']" data-bs-dismiss="offcanvas" aria-label="Close">الشركات</a></li>
+                  <li class="p-3"><a href="#" (click)="goodbye()" class="text-decoration-none" [routerLink]="['/agents']" data-bs-dismiss="offcanvas" aria-label="Close">الوكالات</a></li>
                 </ul>
               }
             </li>
 
             <!-- who is us  -->
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#" [routerLink]="['/whoIsUs']"> من نحن</a>
+              <a class="nav-link text-dark" href="#" [routerLink]="['/whoIsUs']" data-bs-dismiss="offcanvas" aria-label="Close"> من نحن</a>
             </li>
             
             </ul>
             <!-- jops  -->
-            <a class="contact-us" href="#" [routerLink]="['/jops']">الوظائف</a>
+            <a class="contact-us" href="#" [routerLink]="['/jops']" data-bs-dismiss="offcanvas" aria-label="Close">الوظائف</a>
           <!-- contact us -->
-          <a class="contact-us" href="#" [routerLink]="['/contactUs']">تواصل معنا</a>
+          <a class="contact-us" href="#" [routerLink]="['/contactUs']" data-bs-dismiss="offcanvas" aria-label="Close">تواصل معنا</a>
         </div>
       </div>
     </div>

@@ -1,3 +1,10 @@
+body {
+    background-color: aquamarine;
+}
+.address {
+    font-family: Cairo, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #080;
+  }
 .header {
     position: relative;
     background-image: url('/assets/images/bg.jpg');
@@ -125,10 +132,14 @@ h2 strong {
 }
 
 .showing-data {
-    min-height: 100vh;
     padding-top: 50px;
     padding-bottom: 50px;
     /* margin-top: 50px; */
+}
+
+.showing-data.viewHeight{
+    min-height: 110vh;
+
 }
 
 .showing-data > div {
@@ -176,8 +187,10 @@ h2 strong {
     height: 100vh;
     min-height: 450px;
     width: 100%;
-    background-image: url('/assets/images/bg.jpg');
+    background-image: url('/assets/images/Field2.jpeg');
     background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 .fixed-attachments > .container {
@@ -187,6 +200,11 @@ h2 strong {
 .group-attached-card {
     width: 270px;
     border-radius: 35px 35px;
+}
+
+.sperator{
+    font-family: Cairo;
+    font-size: 2.8rem;
 }
 
 @media only screen and (max-width:767px) {
@@ -217,6 +235,9 @@ h2 strong {
     }
     .special-cards {
         position: static;
+    }
+    .fixed-attachments {
+        height: auto;
     }
 }
 

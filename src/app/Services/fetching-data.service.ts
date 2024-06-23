@@ -19,6 +19,16 @@ export class FetchingDataService {
 
   constructor(private http: HttpClient) { }
   // Companies
+  sendingMessage(message:any): Observable<any> {
+    return this.http.post<any>(`${environment.basUrl}/api/${environment.version}/contacts`, message,httpOptions)
+  }
+
+  // Companies
+  gettingCompaniesAndAgents(): Observable<any> {
+    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/companies-agents`, httpOptions)
+  }
+
+  // Companies
   gettingCompanies(): Observable<any> {
     return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/companies`, httpOptions)
   }
@@ -30,16 +40,28 @@ export class FetchingDataService {
 
   // Departments
   gettingDepartments(deparments: number): Observable<any> {
-    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/deparments/${deparments}`, httpOptions)
+    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/companies-agents/${deparments}`, httpOptions)
   }
 
   // Products
   gettingProducts(deparment: number): Observable<any> {
-    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/products/${deparment}`, httpOptions)
+    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/categories/${deparment}`, httpOptions)
+  }
+
+  //All Products
+  gettingAllProducts(): Observable<any> {
+    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/products`, httpOptions)
   }
 
   // Product
   gettingProduct(product:number):Observable<any> {
-    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/departmaent/${product}`, httpOptions)
+    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/products/${product}`, httpOptions)
+    }
+    
+    gettingJobs(){
+    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/jobs`, httpOptions)
+  }
+    gettingSettings(){
+    return this.http.get<any>(`${environment.basUrl}/api/${environment.version}/settings`, httpOptions)
   }
 }
