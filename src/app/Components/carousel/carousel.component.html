@@ -29,7 +29,7 @@
   [circular]="true" 
   [responsiveOptions]="responsiveOptions">
   <ng-template let-product pTemplate="item">
-    <a href="#"  [routerLink]="['/departments',product.id]" class="container text-decoration-none">
+    <a href="#"  [routerLink]="['/product-details',product.id]" class="container text-decoration-none">
       <div class="card border mx-2 carousle-card">
         @if(product.image){
           <img [src]="product.image" alt="">

@@ -15,9 +15,9 @@ export class DepartmentsComponent {
       image: ''
     }
   ];
-  smallScreen:boolean = true; 
+  smallScreen: boolean = true;
   products: any = []
-  selectedDepartment: any = [0];
+  selectedDepartment: any = [];
 
   id: number | any;
   company: string = 'اسم الشركة';
@@ -30,7 +30,7 @@ export class DepartmentsComponent {
         next: (res) => {
           this.depratments = res.result.categories;
           this.company = res.result.name;
-          this.fectchDepartmentData()
+          this.getAllData(this.depratments)
         }
       }
     )
@@ -40,8 +40,8 @@ export class DepartmentsComponent {
   fectchDepartmentData() {
     // this.products = [];
     let products: any = [];
-    for(let i = 0; i < this.selectedDepartment.length;i++){
-      let depart = this.depratments[this.selectedDepartment[i]]; 
+    for (let i = 0; i < this.selectedDepartment.length; i++) {
+      let depart = this.depratments[this.selectedDepartment[i]];
       this.fpd.gettingProducts(Number(depart.id)).subscribe(
         {
           next: (res: any) => {
@@ -51,16 +51,31 @@ export class DepartmentsComponent {
       )
     }
     // console.log(products)
-    return products; 
+    return products;
   }
 
-  AddingDepartData(){
-    this.products = this.fectchDepartmentData(); 
-    console.log(this.selectedDepartment)
-    console.log(123)
+  AddingDepartData() {
+    if(this.selectedDepartment.length != 0){
+      this.products = this.fectchDepartmentData();
+    }else{
+      this.getAllData(this.depratments)
+    }
   }
-  fire(){
+  fire() {
     this.smallScreen = !this.smallScreen
     console.log(this.smallScreen)
+  }
+
+  getAllData(dep:any){
+    this.products = [];
+    for (let i = 0; i < dep.length; i++) {
+      this.fpd.gettingProducts(Number(dep[i].id)).subscribe(
+        {
+          next: (res: any) => {
+            this.products.push(res.result.products); 
+          }
+        }
+      )
+    }
   }
 }

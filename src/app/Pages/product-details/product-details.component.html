@@ -22,11 +22,11 @@
                 </ul>
                 @if (product.how_to_use) {
                 <h3>الاستخدام</h3>
-                <p>{{product.how_to_use|newLine}}</p>
+                <p [innerHTML]="product.how_to_use|newLine"></p>
                 }
                 @if (product.phi) {
                 <h3>PHI</h3>
-                <p>{{product.phi}}</p>
+                <p [innerHTML]="product.phi|newLine"></p>
                 }
             </div>
         </div>

@@ -32,7 +32,7 @@
             @for (department of products; track $index) {
                 @for(product of department;track $index){
                     <a href="#" [routerLink]="['/product-details',product.id]" class="text-center product bg-white card text-decoration-none">
-                        <img [src]="product.image" class="pb-2" [alt]="product.name">
+                        <img [src]="product.image" style="width: 133px; height: 133px;" class="pb-2" [alt]="product.name">
                         <p>{{product.name}}</p>
                     </a>
                 }

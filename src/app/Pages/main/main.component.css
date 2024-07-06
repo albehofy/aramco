@@ -7,7 +7,7 @@ body {
   }
 .header {
     position: relative;
-    background-image: url('/assets/images/bg.jpg');
+    background-image: url('/assets/images/bg2.jpg');
     min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -187,10 +187,10 @@ h2 strong {
     height: 100vh;
     min-height: 450px;
     width: 100%;
-    background-image: url('/assets/images/Field2.jpeg');
+    background-image: url('/assets/images/field3.jpg');
     background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+    /* background-size: cover;
+    background-position: bottom; */
 }
 
 .fixed-attachments > .container {
